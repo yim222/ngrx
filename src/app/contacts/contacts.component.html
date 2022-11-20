@@ -1,0 +1,25 @@
+<input id="layout" type="checkbox" [value]="gallery" (change)="toggleLayout()">
+<label for="layout">Gallery</label><br>
+
+<div class="contact" *ngFor="let contact of contacts"
+     [ngClass]="{'wide': !gallery, 'narrow': gallery}"
+>
+  <div class=" data-area">
+  <span class="inner-row">
+    {{contact.id}}
+  </span>
+    <span class="inner-row">
+    {{contact.firstName}}
+  </span>
+    <span class="inner-row">
+    {{contact.lastName}}
+
+  </span>
+    <span class="inner-row">
+    {{contact.email}}
+  </span>
+
+  </div>
+
+
+</div>

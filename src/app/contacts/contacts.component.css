@@ -1,0 +1,19 @@
+.contact{
+  background-color: gray;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 5px;
+}
+.data-area{
+  padding: 5px;
+}
+.inner-row{
+  display: block;
+}
+.wide{
+  max-width: 50%;
+}
+.narrow{
+  min-width: 30%;
+  display: inline-block;
+}
