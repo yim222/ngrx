@@ -13,6 +13,9 @@ export const initialState: ContactsState = {
 
 export const contactsReducer = createReducer(
   initialState,
+  on(ContactsActions.getContacts,
+    (state: ContactsState) => state
+  ),
   on(ContactsActions.setContacts,
     (state: ContactsState, {contacts}) => {
       return {contacts}
@@ -26,6 +29,6 @@ export const contactsReducer = createReducer(
   )
 );
 
-export  function reducer(state: ContactsState | undefined, action: Action):any{
+export function reducer(state: ContactsState | undefined, action: Action): any {
   return contactsReducer(state, action);
 }
