@@ -2,6 +2,7 @@ import {Action, createReducer, on} from '@ngrx/store';
 import * as ContactsActions from './contacts.actions';
 import {Contact} from "../contacts/contact";
 
+export const contactsFeatureKey = 'contacts';
 
 export interface ContactsState {
   contacts: Contact[];
