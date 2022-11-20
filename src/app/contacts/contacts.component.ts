@@ -18,8 +18,15 @@ export class ContactsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.contactsService.getData().subscribe((data) => {
-      this.contacts = data.data;
+    //Old basic implementation
+    // this.contactsService.getData().subscribe((data) => {
+    //   this.contacts = data.data;
+    // });
+
+    //new NgRx implementation
+    this.contactsService.contacts$.subscribe((data)=> {
+      console.log("contacts = ", data);
+      this.contacts = data;
     });
   }
 
