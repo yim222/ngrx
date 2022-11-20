@@ -25,7 +25,6 @@ export const contactsReducer = createReducer(
 
   on(ContactsActions.addContact,
     (state: ContactsState, {contact}) => {
-      console.log("what ap?")
       return {...state, contacts: [...state.contacts, contact]}
     }
   )

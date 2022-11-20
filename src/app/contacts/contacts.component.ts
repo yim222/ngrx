@@ -25,7 +25,6 @@ export class ContactsComponent implements OnInit {
 
     //new NgRx implementation
     this.contactsService.contacts$.subscribe((data)=> {
-      console.log("contacts = ", data);
       this.contacts = data;
     });
   }

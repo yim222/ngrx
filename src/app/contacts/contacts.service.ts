@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ContactsState} from "../store/contacts.reducers";
 import {select, Store} from "@ngrx/store";
@@ -15,28 +15,21 @@ export class ContactsService {
   contacts$: Observable<Contact[]>;
 
   constructor(private http: HttpClient,
-              private store: Store<ContactsState> ) {
+              private store: Store<ContactsState>) {
 
     this.contacts$ = this.store.pipe(select(selelctContacts));
     this.setData();
-    this.contacts$.subscribe((items)=>{
-      console.log("data changed - ", items);
-    })
-
   }
-  getData(){
+
+  getData() {
     return this.http.get<any>("https://innovi-front-end.s3.us-west-2.amazonaws.com/customers.json");
   }
 
-  setData(){
+  setData() {
     this.http.get<any>("https://innovi-front-end.s3.us-west-2.amazonaws.com/customers.json")
-      .subscribe(items=>{
+      .subscribe(items => {
         this.store.dispatch(setContacts(items.data));
-    });
+      });
   }
-  displayData(){
-    this.contacts$.subscribe((items)=>{
-      console.log("items = ", items);
-    })
-  }
+
 }
